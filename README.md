@@ -18,3 +18,8 @@ Still nothing crazy, though I went about with a lazy way to implement part 2. I'
 
 Had to make my own "remove" function for slices, but I guess that's understandable. Still missing my functional programming paradigms.
 
+## Day 3
+
+This one was even easier than the above two. Match all, iterate over results. Regex to the rescue. I considered some absurdly complex lookbehind backreference pattern for Part 2 and decided I don't hate myself enough for that.
+
+The util package grows.

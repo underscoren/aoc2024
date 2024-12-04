@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -48,4 +49,27 @@ func Remove(slice []int, position int) []int {
 	copy := make([]int, 0, len(slice)-1)
 	copy = append(copy, slice[:position]...)
 	return append(copy, slice[position+1:]...)
+}
+
+// converts a string to an int and if there's an error
+// it exits the program
+func AtoiFatal(text string) int {
+	number, err := strconv.Atoi(text)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return number
+}
+
+// converts all strings to ints in a slice. If any fail
+// the program exits
+func AtoiFatalSlice(numberTexts []string) []int {
+	numbers := make([]int, len(numberTexts))
+
+	for i, text := range numberTexts {
+		numbers[i] = AtoiFatal(text)
+	}
+
+	return numbers
 }
