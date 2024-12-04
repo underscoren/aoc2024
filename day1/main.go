@@ -2,38 +2,19 @@ package day1
 
 import (
 	"fmt"
-	"io"
 	"log"
-	"os"
 	"slices"
 	"strconv"
 	"strings"
+
+	"github.com/underscoren/aoc2024/util"
 )
 
-func abs(num int) int {
-	if num < 0 {
-		return -num
-	}
-
-	return num
-}
-
-func Part1() {
-	// reading in the file
-	file, err := os.Open("day1/input")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	data, err := io.ReadAll(file)
-	if err != nil {
-		log.Fatal(err)
-	}
+func Main() {
+	// read in the file as a slice of lines
+	lines := util.ReadLines("day1/input")
 
 	// transforming line text to 2D locationID int array
-	text := string(data)
-	lines := strings.Split(strings.Trim(text, "\n"), "\n")
-
 	locationIDs := [][]int{
 		make([]int, 0, len(lines)),
 		make([]int, 0, len(lines)),
@@ -59,7 +40,7 @@ func Part1() {
 	var sum int
 
 	for i := 0; i < len(lines); i += 1 {
-		sum += abs(locationIDs[0][i] - locationIDs[1][i])
+		sum += util.Abs(locationIDs[0][i] - locationIDs[1][i])
 	}
 
 	fmt.Printf("Day 1 Total difference: %d \n", sum)
@@ -78,7 +59,7 @@ func Part1() {
 			continue
 		}
 
-		// find the total amount of occurrences
+		// find the total count of occurrences, by iterating and checking each element (since it's sorted)
 		count := 1
 
 		for {
