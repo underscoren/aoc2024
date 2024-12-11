@@ -23,3 +23,11 @@ Had to make my own "remove" function for slices, but I guess that's understandab
 This one was even easier than the above two. Match all, iterate over results. Regex to the rescue. I considered some absurdly complex lookbehind backreference pattern for Part 2 and decided I don't hate myself enough for that.
 
 The util package grows.
+
+## Day 4
+
+Better late than never. Got a little confused with my logic, ended up double-checking forwards and backwards.
+
+## Day 5
+
+Less mistakes this time. After part 1 I refactored the checking part of the solution into a function, then added some more data about the indices of elements at point of failure. Swapping elements in go is very nice with syntactic sugar like `a, b = b, a`.
