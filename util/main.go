@@ -73,3 +73,10 @@ func AtoiFatalSlice(numberTexts []string) []int {
 
 	return numbers
 }
+
+// replaces a character at a given position in a string
+func ReplaceCharAt(text string, char byte, pos int) string {
+	modified := []byte(text)
+	modified[pos] = char
+	return string(modified)
+}
